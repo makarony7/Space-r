@@ -1,10 +1,18 @@
 <template>
   <div class="app">
-    <router-link to="/">spacer</router-link>
-    <router-link to="/about">about</router-link>
     <router-view />
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
 </style>
