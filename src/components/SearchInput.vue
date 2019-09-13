@@ -1,34 +1,31 @@
 <template>
   <div class="searchWrapper">
-    <input id="search" name="search" v-model="searchValue" @input="handleInput" />
+    <input id="search"
+      name="search"
+      :class=" { dark: dark }"
+      :value="value"
+      @input="handleChange" />
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import debounce from "lodash.debounce";
-
-const API = "https://images-api.nasa.gov";
-
 export default {
   name: "SearchInput",
-  data() {
-    return {
-      searchValue: "",
-      results: []
-    };
-  },
   methods: {
-    handleInput: debounce(function() {
-      axios
-        .get(`${API}/search?q=${this.searchValue}&media_type=image`)
-        .then(response => {
-          this.results = response.data.collection.items;
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }, 500)
+    handleChange(e) {
+      this.$emit("input", e.target.value);
+    }
+  },
+  props: {
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+    value: {
+      type: String,
+      required: true
+      //   default: 'Moon';
+    }
   }
 };
 </script>
@@ -40,10 +37,33 @@ export default {
   width: 300px;
   margin-top: 50px;
   input {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
     height: 30px;
     border: 0;
     background: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #fff;
+    transition: box-shadow 0.3s ease-out;
+    &:focus,
+    &:hover {
+      outline: none;
+      box-shadow: 0 10px 20px -8px rgba(255, 255, 255, 0.5);
+    }
+    @media (min-width: 1024px) {
+      font-weight: 400;
+    }
+  }
+  .dark {
+    color: #1e3d4a;
+    border-bottom-color: #1e3d4a;
+    &:focus, &:hover {
+      box-shadow: 0 10px 20px -8px rgba(#1e3d4a, 0.5);
+    }
   }
 }
 </style>
+
+// :class=" { dark: dark }" = 1 dark to klasa, drugie to props. ponizej skrotowy zapis ES6
+// :class="{dark}"
