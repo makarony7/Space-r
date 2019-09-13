@@ -6,24 +6,24 @@
 
 <script>
 export default {
-  name: "Item",
+  name: 'Item',
   computed: {
     style() {
       return `backgroundImage: url("${this.photo}")`;
-    }
+    },
   },
   data() {
     return {
       photo: this.item.links[0].href,
-      title: this.item.data[0].title
+      title: this.item.data[0].title,
     };
   },
   props: {
     item: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

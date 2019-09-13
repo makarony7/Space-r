@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "SpaceBg"
+  name: 'SpaceBg',
 };
 </script>
 

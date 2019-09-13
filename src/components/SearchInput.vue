@@ -10,11 +10,11 @@
 
 <script>
 export default {
-  name: "SearchInput",
+  name: 'SearchInput',
   methods: {
     handleChange(e) {
-      this.$emit("input", e.target.value);
-    }
+      this.$emit('input', e.target.value);
+    },
   },
   props: {
     dark: {
@@ -23,10 +23,10 @@ export default {
     },
     value: {
       type: String,
-      required: true
+      required: true,
       //   default: 'Moon';
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -64,6 +64,3 @@ export default {
   }
 }
 </style>
-
-// :class=" { dark: dark }" = 1 dark to klasa, drugie to props. ponizej skrotowy zapis ES6
-// :class="{dark}"

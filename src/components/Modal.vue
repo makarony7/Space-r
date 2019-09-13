@@ -15,25 +15,25 @@
 
 <script>
 export default {
-  name: "Modal",
+  name: 'Modal',
   data() {
     return {
       photo: null,
       title: null,
-      description: null
+      description: null,
     };
   },
   props: {
     item: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   mounted() {
     this.photo = this.item.links[0].href;
     this.title = this.item.data[0].title;
     this.description = this.item.data[0].description;
-  }
+  },
 };
 </script>
 

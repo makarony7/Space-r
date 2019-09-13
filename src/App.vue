@@ -42,13 +42,13 @@ import Modal from "@/components/Modal.vue";
 const API = "https://images-api.nasa.gov";
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Claim,
     SearchInput,
     SpaceBg,
     Item,
-    Modal
+    Modal,
   },
   data() {
     return {
@@ -57,7 +57,7 @@ export default {
       searchValue: "",
       results: [],
       modalOpen: false,
-      modalItem: null
+      modalItem: null,
     };
   },
   methods: {
@@ -78,8 +78,8 @@ export default {
     handleModalOpen(item) {
       this.modalOpen = true;
       this.modalItem = item;
-    }
-  }
+    },
+  },
 };
 </script>
 
